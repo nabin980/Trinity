@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css"  href="{% static 'css/forgot.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..." crossorigin="anonymous" />
+{% endblock %}
+
+{% block title %}Forgot Password{% endblock %}
+
+{% block content %}
+{% for message in messages %}
+  {% if 'success' in message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% elif 'error' in message.tags %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Warning!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+{% endfor %}
+<div class="forgot">
+  <h3><i class="fa fa-lock fa-4x"></i></h3>
+    <h1>Verify Login</h1>
+    <p>An email has been sent containing the code:</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" id="text" name="verification_code" placeholder="Enter 6 digit code" required><br><br>
+        <input type="submit" class="resetPw" value="Verify Code" >
+    </form>
+</div>
+{% endblock %}

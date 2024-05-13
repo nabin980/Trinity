@@ -1,0 +1,394 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+  overflow: hidden;
+}
+
+html {
+  /* font-size: 62.5%; */
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* @media (min-width: 1440px) {
+  html {
+    zoom: 1.2;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    zoom: 1.4;
+  }
+}
+
+@media (min-width: 3860px) {
+  html {
+    zoom: 2.5;
+  }
+} */
+
+
+/* .topNavvv {
+  display: flex;
+
+
+
+  backdrop-filter: saturate(180%) blur(10px);
+  
+  position: relative;
+  overflow: hidden;
+  font-family: 'Open Sans Bold', sans-serif;
+} */
+
+nav{
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.89);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .2);
+  display: flex;
+  /* position: fixed; */
+    align-items: center;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 2%;
+  top: 0;
+  z-index: 1000;
+  height: 5rem;
+}
+
+/* Specify the content area to be scrollable */
+#content-containervv {
+  overflow-y: auto;
+  height: calc(100vh - 70px); /* Adjust the value based on your navigation bar height */
+}
+
+.logovv {
+  width: 100px;
+  margin: 0;
+}
+
+/* Responsive navbar starts */
+
+.navbar-buttonvv:hover {
+  color: #050505;
+  transform: translate(0, -4px);
+  transition: 3ms ease-out;
+}
+
+.navbar-buttonvv:active {
+  color: #050505;
+}
+
+/* Responsive navbar ends */
+
+.rowvv {
+  width: 80%;
+  margin: auto;
+}
+
+
+
+.stickyvv {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 900;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  height: 50px;
+  color: white;
+}
+
+
+nav ul li {
+  padding: 0 10px;
+}
+
+.navbar-contentvv li a{
+  font-size: 20px;
+}
+
+.loginBtnvv {
+  display: flex;
+  padding: 5px 20px;
+  text-decoration: none;
+  background-color: #6751d7;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+  font-family: Helvetica;
+  font-weight: normal;
+  margin-left: auto;
+  white-space: nowrap;
+  transition: transform ease 300ms;
+  font-size: 18px;
+}
+
+.loginBtninsidevv {
+  display: block;
+  width: auto;
+  padding: 5px 10px;
+  text-decoration: none;
+  background-color: #6751d7;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-family: Helvetica;
+  font-weight: 200;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.loginBtnvv:hover {
+  background-color: #503a93;
+  transition: transform ease 300ms;
+}
+
+av {
+  text-decoration: none;
+}
+
+.navbar-buttonvv {
+  display: flex;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: #6751d7;
+  position: relative;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: transform ease 300ms;
+}
+
+.navbar-buttonvv.clickedvv {
+  color: #000;
+}
+
+.navbar-buttonvv:hover::after,
+.navbar-buttonvv.active::after {
+  transform: scaleX(1);
+}
+
+.navbar-buttonvv:hover {
+  transition: .4s;
+}
+
+.navbarvv {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+}
+
+
+/*Styling Hamburger Icon*/
+.hamburgervv div{
+  width: 30px;
+  height:4px;
+  background: #6751d7;
+  margin: 5px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+.hamburgervv{
+  display: none;
+}
+
+.navbar-contentvv li a .logovvtr{
+  display: none;
+  width: 5px;
+  padding: 0% !important;
+}
+
+/*Stying for small screens*/
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .hamburgervv {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+    transition: all 0.7s ease;
+  }
+
+
+  /* .navbar-contentvv {
+    display: flex;
+    position: relative;
+    background: #7b8dd8;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+
+    transition: all 1s ease-out;
+    pointer-events: none;
+  } */
+
+  .navbar-contentvv {
+    position: fixed;
+    top: 0;
+    right: 0; /* Set right instead of left */
+    width: 100%;
+    height: 100%;
+    background: #6751d7dc;
+    flex-direction: column;
+    clip-path: ellipse(25% 50% at 100% 0%);
+    -webkit-clip-path: ellipse(45% 20% at 100% 0%);
+    transition: all 1.5s ease-in-out;
+    pointer-events: none;
+    opacity: 0;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .navbar-contentvv li a .logovvtr{
+    display: flex;
+    width: 200px;
+    margin-top: 10rem;
+  }
+
+  .navbar-contentvv li a{
+    top: 15rem;
+    font-size: 25px;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .loginBtnvv{
+    display: block;
+    position: relative;
+    background-color: #fff;
+    color: #6751d7;
+    width: 20vh;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-top: 1rem;
+  }
+
+  .loginBtnvv:hover{
+    background-color: #f3f3f3;
+    color: #6751d7;
+  }
+
+  .navbar-contentvv.openvv {
+    clip-path: ellipse(4000px 3000px at 100% -10%);
+    -webkit-clip-path: ellipse(3000px 5000px at 100% -10%);
+    pointer-events: all; /* Add this line */
+    opacity: 1;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    z-index: 10;
+  }
+
+  .navbar-buttonvv{
+    color: #fff;
+  }
+
+  .navbar-contentvv li {
+    opacity: 0;
+  }
+
+  .navbar-contentvv li:nth-child(1) {
+    transition: all 0.5s ease 0.2s;
+  }
+
+  .navbar-contentvv li:nth-child(2) {
+    transition: all 0.5s ease 0.4s;
+  }
+
+  .navbar-contentvv li:nth-child(3) {
+    transition: all 0.5s ease 0.6s;
+  }
+
+  .navbar-contentvv li:nth-child(4) {
+    transition: all 0.5s ease 0.7s;
+  }
+
+  .navbar-contentvv li:nth-child(5) {
+    transition: all 0.5s ease 0.8s;
+  }
+
+  .navbar-contentvv li:nth-child(6) {
+    transition: all 0.5s ease 0.9s;
+    margin: 0;
+  }
+
+  .navbar-contentvv li:nth-child(7) {
+    transition: all 0.5s ease 1s;
+    margin: 0;
+  }
+
+  li.fadevv {
+    opacity: 1;
+  }
+}
+
+/*Animating Hamburger Icon on Click*/
+.togglevv .line1vv{
+  transform: rotate(-45deg) translate(-5px,6px);
+  background: #fff;
+}
+.togglevv .line2vv{
+  transition: all 0.7s ease;
+  width:0;
+  background: #fff;
+}
+.togglevv .line3vv{
+  transform: rotate(45deg) translate(-5px,-6px);
+  background: #fff;
+}
+
+@media (min-width: 1440px) {
+  .navbarvv{
+    right: 0;
+  }
+}
+
+.navbarvv ul{
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px){
+  .navbar-buttonvv {
+    padding: 8px 5px;
+  }
+
+  .navbar-contentvv li a{
+    font-size: 18px;
+  }
+
+  .logovv {
+    width: 80px;
+    margin: 0;
+  }
+  
+}

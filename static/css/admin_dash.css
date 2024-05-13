@@ -1,0 +1,396 @@
+/* Basic styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+  overflow-y:hidden ;
+}
+
+header {
+  background-color: #6751D7;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #fe0000;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+button:hover {
+  background-color: #b20000;
+}
+
+main {
+  padding: 20px;
+  overflow-y: hidden;
+}
+
+
+
+thead {
+  background-color: #6751D7;
+  color: #fff;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+  background-color: #a291f733;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+tfoot {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Tab styles */
+.tabs {
+  background-color: #f4f4f4;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs .navigation {
+  list-style: none;
+  display: flex;
+}
+
+.tabs .navigation li {
+  margin-right: 20px;
+}
+
+.tabs .navigation li a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 5px 5px 0 0;
+  background-color: #ddd;
+}
+
+.tabs .navigation li a:hover {
+  background-color: #ccc;
+}
+
+
+
+/* Modal styles */
+/* .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 35vh auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form{
+  margin-top: 2rem;
+  align-items: center;
+} */
+
+
+/* Modal Styles */
+.modall {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.modal-contentt {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 20vh auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #6751D7;
+  font-weight: bold;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  /* flex-direction: column; */
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+button {
+  padding: 8px 25px;
+  background-color: #6751d7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+button:hover {
+  background-color: #503a93;
+}
+
+/* Updated CSS for the toast notification-style pop-up */
+/* Styles for the success toast */
+.toast {
+  position: absolute;
+  top: 5rem;
+  right: 30px;
+  border-radius: 12px;
+  background: #DFF0D8;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+  z-index: 20;
+}
+
+.toast.active {
+  transform: translateX(0%);
+}
+
+.toast .toast-content {
+  display: flex;
+  align-items: center;
+}
+
+.toast-content .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  min-width: 35px;
+  background-color: #5CB85C;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.message .text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.message .text.text-1 {
+  font-weight: 600;
+  color: #333;
+}
+
+.toast #close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  z-index: 21;
+}
+
+.toast #close:hover {
+  opacity: 1;
+}
+
+.toast .progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+
+}
+
+.toast .progress:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #3C763D;
+}
+
+.progress.active:before {
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}
+
+.toast.active ~ button {
+  pointer-events: none;
+}
+
+/* pagination styling */
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.step-links {
+  display: inline-block;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.step-links a {
+  color: #333;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.step-links a:hover {
+  background-color: #ddd;
+}
+
+.current {
+  color: #fff;
+  background-color: #6751D7;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+/* Optional: Add this to style the "next" and "previous" links differently */
+.step-links a[disabled],
+.step-links a[disabled]:hover {
+  color: #ccc;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+.step-links a {
+  margin-right: 5px;
+}
+
+/* Add these styles to ensure proper spacing between links */
+.step-links a:first-child {
+  margin-left: 0;
+}
+
+.step-links a:last-child {
+  margin-right: 0;
+}
+
+.search-form{
+  /* width: 50vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row !important;
+}
+
+.search-formm{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row !important;
+}
+
+.pagination{
+  display: flex;
+  position: relative;
+  top: 75%;
+  align-items: center;
+  justify-content: center;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .2);
+  overflow-y: auto;
+}

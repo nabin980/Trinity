@@ -1,0 +1,267 @@
+/* *{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+} */
+
+body{
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.4;
+  background: #F9F9F9;
+  overflow-x: hidden;
+  background: linear-gradient(315deg, rgba(255, 255, 255, 1) 0%, rgba(103, 81, 215, 1) 100%);
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact-container{
+  width: 90%;
+  height: 90vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.contact-inner-container{
+  padding: 0px;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  overflow: hidden;
+  background: #7058eb;
+  border-radius: 30px;
+}
+
+.contact-info-container{
+  width: 50%;
+  text-align: left;
+  padding: 50px;
+  /* background: #7925C7; */
+  background: url(../images/move.png);
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .2);
+}
+
+.info-cont{
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .2);
+  padding: 20px;
+  margin: -20px;
+  border-radius: 15px;
+}
+
+.contact-form{
+  width: 50%;
+  /* background: lightsteelblue; */
+  background: #7058eb;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.contact-heading{
+  font-family: inherit;
+  font-size: 4rem;
+  font-weight: 700 !important;
+  line-height: 4rem;
+  color: #7058eb;
+  text-shadow: #0000006b 0px 1px;
+}
+
+.contact-description{
+  font-family: inherit;
+  font-weight: 700;
+  color: #7058eb;
+  line-height: 1.6rem;
+  text-align: justify;
+  font-size: 16px;
+  margin-top: 20px;
+  text-shadow: #0000006b 0px 1px;
+}
+
+.line{
+  width: 100%;
+  height: 8px;
+  border-radius: 8px;
+  background: #7058eb;
+  margin: 24px 0px;
+}
+
+.contact-details{
+  padding-top: 24px;
+}
+
+.contact-details h3{
+  font-weight: 600;
+  color: #7058eb;
+  text-shadow: #00000075 0px 1px;
+}
+
+.contact-details p{
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-shadow: #0202023d 1px 1px;
+}
+
+.contact-logo{
+  width: 150px;
+  filter: grayscale(0);
+}
+
+span{
+  font-size: 30px;
+  color: #ffffff;
+  margin-right: 10px;
+  font-weight: bolder;
+  text-shadow: #00000050 0px 2px;
+}
+
+.social-link-container{
+  display: flex;
+  margin-top: 30px;
+}
+
+.social-link-container .fa{
+  margin-right: 20px;
+  cursor: pointer;
+  color: #7058eb;
+  transition: all 0.2s;
+}
+
+.social-link-container .fa:hover, .submit-btn:hover{
+  transform: translateY(-4px);
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group{
+  width: 100%;
+  text-align: left;
+  margin-top: 2px;
+}
+
+.form-group:not(:last-child){
+  margin-bottom: 1rem;
+}
+
+.input-field{
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  padding: 18px;
+  background: #F2F2F2;
+}
+
+.form-input{
+  height: auto;
+}
+
+.form-group textarea{
+  height: 200px;
+}
+
+.submit-btn{
+  padding: 1rem 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  color: #7058eb;
+  background: lightsteelblue;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: medium;
+}
+
+.input-field::placeholder {
+  font-size: medium;
+}
+
+@media (max-width: 1160px) {
+  .contact-inner-container{
+    height: 45vh;
+  }
+  
+  .contact-info-container{
+    height: 45vh;
+  }
+
+  .info-cont{
+    position: relative;
+    display: block;
+    height: 42vh;
+    overflow: hidden;
+    font-size: 1rem;
+  }
+
+  .contact-logo{
+    width: 100px;
+    filter: grayscale(0);
+  }
+  
+  span{
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+    font-weight: bolder;
+    
+  }
+
+  .contact-heading{
+    font-size: 3rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  body{
+    overflow-x: hidden;
+  }
+
+  .contact-info-container{
+    display: none;
+  }
+
+  .contact-form{
+    width: 100%;
+    background: url(../images/move.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .2);
+  }
+
+  .contact-inner-container{
+    height: 500px;
+  }
+
+  .input-field{
+    background: #7058eb65;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .2);
+    border-radius: 8px;
+  }
+
+  .input-field::placeholder {
+    color: #ffffff;
+  }
+
+  .submit-btn{
+    color: #ffffff;
+  }
+}

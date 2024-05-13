@@ -1,0 +1,78 @@
+{% extends 'admin_dash.html' %}
+
+{% block title %}User Experiences - Admin Page{% endblock %}
+
+{% block admin_content %}
+    <h1>User Experiences</h1>
+
+    <div class="search-form">
+        <form method="get" action="{% url 'user_experiences' %}">
+            <input type="text" name="q" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% if user_experiences %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Created At</th>
+                    <th>Published Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user_experience in user_experiences %}
+                    <tr>
+                        <td>{{ user_experience.id }}</td>
+                        <td>{{ user_experience.profile.fullname }}</td>
+                        <td>{{ user_experience.rating }}</td>
+                        <td>{{ user_experience.comment }}</td>
+                        <td>{{ user_experience.created_at }}</td>
+                        <td>
+                            {% if not user_experience.is_published %}
+                                <form method="post" action="{% url 'publish_testimonials' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="user_experience_id" value="{{ user_experience.id }}">
+                                    <button type="submit">Publish</button>
+                                </form>
+                            {% else %}
+                                <span class="published">Published</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form method="post" action="{% url 'delete_user_experience' user_experience.id %}" onsubmit="return confirm('Are you sure you want to delete this user experience?');">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if user_experiences.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ user_experiences.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ user_experiences.number }} of {{ user_experiences.paginator.num_pages }}.
+                </span>
+
+                {% if user_experiences.has_next %}
+                    <a href="?page={{ user_experiences.next_page_number }}">next</a>
+                    <a href="?page={{ user_experiences.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% else %}
+        <p>No one has shared their experience yet!</p>
+    {% endif %}
+{% endblock %}

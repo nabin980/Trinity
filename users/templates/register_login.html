@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/reg.css' %}">
+{% endblock %}
+
+{% block title %}Trinity Removals | Signin/Signup{% endblock %}
+
+{% block content %}
+{% for message in messages %}
+  {% if 'success' in message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% elif 'error' in message.tags %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Warning!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+{% endfor %}
+<div class="form-box">
+  <!------------------- login form -------------------------->
+  <div class="login-container" id="login">
+      <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <div class="top">
+              <header>Login</header>
+          </div>
+          <div class="input-box">
+              <input type="email" name="email" class="input-field" placeholder="johndoe@email.com">
+              <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="input-box">
+              <div class="password-container">
+                  <input type="password" name="password" class="input-field" id="login-password" placeholder="Password" oninput="handlePasswordInput(this)">
+                  <i class="fa-solid fa-lock"></i>
+                  <span class="toggle-password" onclick="togglePassword('login-password', this)">
+                      <i class="fa-solid fa-eye"></i>
+                  </span>
+              </div>
+          </div>
+          <div class="input-box">
+              <input type="submit" class="submit" value="Sign In">
+          </div>
+          <div class="two-col">
+              <div class="two">
+                  <label><a href="{% url 'forgot-password' %}">Forgot password?</a></label>
+              </div>
+          </div><br>
+          <div class="top">
+              <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
+          </div>
+      </form>
+  </div>
+
+  <!------------------- registration form -------------------------->
+  <div class="register-container" id="register">
+      <form method="post" id="registration-form" action="{% url 'register' %}">
+          {% csrf_token %}
+          <div class="top">
+              <header>Sign Up</header>
+          </div>
+          <div class="input-box">
+              <input type="text" name="fullname" class="input-field" placeholder="Fullname">
+              <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="input-box">
+              <input type="email" name="email" class="input-field" placeholder="Email">
+              <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="input-box">
+              <div class="password-container">
+                  <input type="password" name="password" class="input-field" id="register-password" placeholder="Password">
+                  <i class="fa-solid fa-lock"></i>
+                  <span class="toggle-password" onclick="togglePassword('register-password', this)">
+                      <i class="fa-solid fa-eye"></i>
+                  </span>
+              </div>
+          </div>
+          <div class="input-box">
+              <input type="password" name="cpword" class="input-field" placeholder="Confirm Password">
+              <i class="fa-solid fa-lock"></i>
+          </div>
+          <div class="input-box">
+              <input type="submit" class="submit" value="Register">
+          </div>
+          <br>
+          <div class="top">
+              <span>Have an account? <a href="#" onclick="login()">Login</a></span> 
+          </div>
+      </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

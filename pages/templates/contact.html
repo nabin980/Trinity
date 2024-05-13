@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block title %}Contact Us | Trinity Removals{% endblock %}
+
+{% block content %}
+{% for message in messages %}
+  {% if 'success' in message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% elif 'error' in message.tags %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Warning!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+{% endfor %}
+<div class="contact-container">
+  <div class="contact-inner-container">
+
+    <div class="contact-info-container">
+      <div class="info-cont">
+      <h1 class="contact-heading">Hello There!</h1>
+      <p class="contact-description">
+        We're open for any suggestion or just to have a chat.
+      </p> <div class="line"></div>
+      <div>
+        <span>Get to know more about </span> <img src="{% static 'images/logo.png' %}" class="contact-logo"> 
+      </div>
+      
+
+      <div class="contact-details">
+        <h3><i class="fa-solid fa-location-arrow"></i> Address</h3>
+        <p>Sydney Australia</p>
+      </div>
+      <hr />
+
+      <div class="contact-details">
+        <h3><i class="fa fa-envelope"></i> Email</h3>
+        <p>trinityremoval1@gmail.com</p>
+      </div>
+      <hr />
+
+      <div class="contact-details">
+        <h3><i class="fa fa-phone"></i> Lets Talk</h3>
+        <p>0416825336</p>
+      </div>
+      <hr />
+
+      <div class="social-link-container">
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-linkedin"></i>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="contact-form">
+      <form class="form" method="post" action="{% url 'quotation_request' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" name="name" class="input-field form-input" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" class="input-field form-input" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input type="number" name="contact_number" class="input-field form-input" placeholder="Contact Number">
+        </div>
+        <div class="form-group">
+            <textarea name="quotation_request" rows="5" class="input-field form-input" placeholder="Request Quotation"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="input-field submit-btn" value="Submit">
+        </div>
+    </form>
+    
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
+
